@@ -13,21 +13,18 @@ hist_b = cv2.calcHist([b], [0], None, [256], [0, 256])
 hist_g = cv2.calcHist([g], [0], None, [256], [0, 256])
 hist_r = cv2.calcHist([r], [0], None, [256], [0, 256])
 
-# 4. Graficar los 3 histogramas superpuestos
+# 4. Graficar los canales superpuestos
 plt.figure(figsize=(8, 5))
 plt.plot(hist_b, color='b', label='Azul (B)')
 plt.plot(hist_g, color='g', label='Verde (G)')
 plt.plot(hist_r, color='r', label='Rojo (R)')
 
-plt.title("Histograma de canales de color")
+plt.title("Analisis de canales de color")
 plt.xlabel("Intensidad (0 - 255)")
 plt.ylabel("Numero de pixeles")
 plt.legend()
 plt.grid(True, linestyle='--', alpha=0.5)
-
-# Guardar la grafica generada
-plt.savefig("histograma.png")
-print("Grafica guardada exitosamente como histograma.png")
+plt.show()
 
 # 5. Analisis del color dominante
 media_b = np.mean(b)
